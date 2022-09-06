@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>users</title>
+    <!--    Latest compiled and minified CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap cdn link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<style>
+    a {
+        float: right;
+    }
+</style>
+<body>
+<div>
+    <a href="/logout">Logout</a>
+</div>
+<table class="table">
+    <thead>
+
+    <tr>
+        <!-- <th scope="col">Id</th> -->
+        <th scope="col">Full Name</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Password</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <% usersList.forEach(users=>{ %>
+
+        <tr>
+            <!-- <th scope="row">
+                        <%= users._id %>
+                    </th> -->
+            <td>
+                <%= users.name %>
+            </td>
+            <td>
+                <%= users.username %>
+            </td>
+            <td>
+                <%= users.email %>
+            </td>
+            <td>
+                <%= users.phone %>
+            </td>
+            <td>
+                <%= users.birthday %>
+            </td>
+            <td>
+                <%= users.password %>
+            </td>
+            <td>
+                <form action="/edit/<%= users._id %>" method="GET">
+                    <button class="btn btn-danger">Edit/Update</button>
+                </form>
+
+                <!-- <a href="/edit/<%= users._id %>">Edit</a> -->
+            </td>
+
+            <td>
+                <button class="btn btn-danger" id="link" data-mongo-id="<%= users._id %>"
+                        onclick="deleteData('<%= users._id %>')">Delete
+                </button>
+            </td>
+            <td>
+                <form action="/profile/<%= users.id %>">
+                    <button class="btn btn-success">Profile</button>
+                </form>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<script>
+    function deleteData(id) {
+        if (!confirm('Sure! You want to delete?')) {
+            return false;
+        }
+        $.ajax({
+            type: 'GET',
+            url: '/delete',
+            data: {'id': id},
+            success: function (data) {
+                alert('User Deleted');
+                location.reload()
+            },
+            error: function () {
+                console.log('error');
+            }
+        })
+    }
+</script>
+</body>
+</html>

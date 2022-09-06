@@ -1,0 +1,79 @@
+@import "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css";
+body{
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+    background:url('../signup.webp') no-repeat;
+    background-size:cover;
+}
+.logo{
+    width:250px;
+    height: 67px;
+    lenght:380px;
+    position: relative;
+    top:5%;
+    justify-content: center;
+}
+.login-box{
+    width:250px;
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:black;
+}
+.textbox{
+    width:100%;
+    overflow:hidden;
+    font-size:20px;
+    padding:8px 0;
+    margin:8px 0;
+    border-bottom:2px solid #6f9ef5;
+}
+.select{
+    background: transparent;
+    width:100%;
+    overflow:hidden;
+    font-size:13px;
+    padding:4px 0;
+    margin:0 0;
+    border-bottom:2px solid #6f9ef5;
+}
+.textbox i{
+    width:26px;
+    float:left;
+    text-align:center;
+}
+.textbox input{
+    border:none;
+    outline:none;
+    background:none;
+    color:black;
+    width:140px;
+    float:left;
+    margin:0 15px;
+}
+.btn{
+    width:100%;
+    background: #0963b6;
+    border:2px solid #0963b6;
+    color:white;
+    padding:5px;
+    font-size:18px;
+    cursor:pointer;
+    margin:12px 0;
+}
+p {
+    text-align: center;
+    margin:15px 10px 10px 50px;
+}
+.social img{
+    width: 30px;
+    margin: 0 7px;
+}
+.social{
+    text-align: center;
+}
+
+
+
